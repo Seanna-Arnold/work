@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Portfolio of Seanna Arnold, web developer in Raleigh, NC.">
+<title>Seanna Arnold Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<style>
+/* Layout: single column of project rows, text left and device frames right, stacking on phones */
+:root {
+  --bg: #f2f3ee;
+  --surface: #fbfbf8;
+  --ink: #17261d;
+  --muted: #56625a;
+  --line: #d3d8cd;
+  --accent: #1f3a2b;
+  --accent-soft: #e2e7dd;
+  --font-display: "Gloock", Georgia, "Times New Roman", serif;
+  --font-body: "Nunito Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "Nunito Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121814; --surface: #19211c; --ink: #e8ece4; --muted: #9ba89f;
+    --line: #2c3730; --accent: #b4cfbb; --accent-soft: #223029; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121814; --surface: #19211c; --ink: #e8ece4; --muted: #9ba89f;
+  --line: #2c3730; --accent: #b4cfbb; --accent-soft: #223029; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+img { max-width: 100%; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+}
+.wrap {
+  max-width: 1080px; margin: 0 auto;
+  padding-block: 56px 72px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--accent); text-underline-offset: 4px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+header { display: grid; gap: 22px; padding-bottom: 48px; border-bottom: 1.5px solid var(--ink); }
+.eyebrow { font-family: var(--font-body); font-weight: 700; font-size: 12.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+h1 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(2.8rem, 8vw, 5rem); line-height: 1; letter-spacing: -.015em;
+  margin: 0; text-wrap: balance;
+}
+.intro { max-width: 60ch; font-size: 1.125rem; color: var(--muted); margin: 0; }
+.contact { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 15px; }
+.contact span { user-select: all; color: var(--ink); }
+
+.project {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: 40px; padding-block: 52px; border-bottom: 1px solid var(--line);
+}
+.project:last-of-type { border-bottom: 0; }
+.text { display: grid; gap: 16px; align-content: start; min-width: 0; }
+.client { font-family: var(--font-body); font-weight: 700; font-size: 12.5px; color: var(--muted); letter-spacing: .16em; text-transform: uppercase; }
+h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.8rem, 4vw, 2.3rem); line-height: 1.08; letter-spacing: -.01em; margin: 0; text-wrap: balance; }
+.text p { margin: 0; max-width: 58ch; }
+.role { font-weight: 600; }
+.stack { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.stack li {
+  font-weight: 700; font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase;
+  border: 1.5px solid var(--ink); color: var(--ink);
+  padding: 5px 13px; border-radius: 999px;
+}
+.links { display: grid; gap: 6px; list-style: none; padding: 0; margin: 0; font-size: 15px; }
+.links li { overflow-wrap: anywhere; }
+.links small { color: var(--muted); font-size: 13px; margin-left: 6px; }
+
+/* device frames */
+.shots { display: flex; align-items: flex-end; gap: 16px; min-width: 0; }
+.browser {
+  flex: 1 1 auto; min-width: 0;
+  background: var(--surface); border: 1.5px solid var(--ink); border-radius: 14px; overflow: hidden;
+}
+.bar { display: flex; align-items: center; gap: 6px; padding: 9px 12px; border-bottom: 1.5px solid var(--ink); }
+.bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+.bar span {
+  margin-left: 8px; font-family: var(--font-body); font-size: 11.5px; letter-spacing: .04em; color: var(--muted);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.phone {
+  flex: 0 0 26%; max-width: 132px;
+  background: var(--ink); border: 1.5px solid var(--ink); border-radius: 22px; padding: 7px;
+}
+.slot {
+  display: grid; place-items: center; text-align: center;
+  font-family: var(--font-mono); font-size: 12px; color: var(--muted);
+  background: repeating-linear-gradient(135deg, transparent 0 10px, var(--accent-soft) 10px 11px);
+  padding: 8px;
+}
+.browser .slot { aspect-ratio: 16 / 10; }
+.phone .slot { aspect-ratio: 9 / 19; border-radius: 16px; }
+.browser .slot:has(img), .phone .slot:has(img) { display: block; padding: 0; background: var(--surface); aspect-ratio: auto; overflow: hidden; }
+.slot img { display: block; width: 100%; height: auto; }
+
+footer { padding-top: 40px; color: var(--muted); font-size: 14px; }
+
+@media (max-width: 760px) {
+  .wrap { padding-block: 36px 56px; }
+  .project { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-block: 40px; }
+  .shots { order: -1; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Web developer · Raleigh, NC</div>
+    <h1>Seanna Arnold</h1>
+    <p class="intro">I build and ship customer-facing websites, landing pages and booking flows in HubSpot CMS, React and plain HTML/CSS. These are live pages I built for brands owned by MDO Holdings.</p>
+    <div class="contact">
+      <span>seanna.arnold@icloud.com</span>
+      <a href="https://github.com/Seanna-Arnold">GitHub</a>
+      <a href="https://linkedin.com/in/seanna-arnold">LinkedIn</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="project" aria-labelledby="p-thrive">
+      <div class="text">
+        <div class="client">Thrive Wellness</div>
+        <h2 id="p-thrive">Full website build with affiliate pricing</h2>
+        <p class="role">Built the full site.</p>
+        <p>Service pages for each treatment, plus pricing logic that reads the visitor's UTM campaign, known contact info or cookies and pulls the matching affiliate's pricing, coupons and promos from HubDB. One page template serves every partner without duplicate pages.</p>
+        <ul class="stack"><li>HubSpot CMS</li><li>HubDB</li><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+        <ul class="links">
+          <li><a href="https://thrivebetter.com/">thrivebetter.com</a></li>
+          <li><a href="https://thrivebetter.com/weight-loss">Service page: weight loss</a></li>
+        </ul>
+      </div>
+      <div class="shots" aria-hidden="true">
+        <div class="browser"><div class="bar"><i></i><i></i><i></i><span>thrivebetter.com</span></div><div class="slot"><img src="img/thrive-desktop.jpg" alt="Thrive Wellness weight loss page on desktop" loading="lazy"></div></div>
+        <div class="phone"><div class="slot"><img src="img/thrive-mobile.jpg" alt="Thrive Wellness weight loss page on mobile" loading="lazy"></div></div>
+      </div>
+    </section>
+
+    <section class="project" aria-labelledby="p-kyz">
+      <div class="text">
+        <div class="client">Kyzatrex</div>
+        <h2 id="p-kyz">Product site, built and launched solo</h2>
+        <p class="role">Built and launched the whole site myself.</p>
+        <p>A complete product website, including a Get Started page that walks new visitors into the sign-up path. Built with React components in TypeScript on HubSpot.</p>
+        <ul class="stack"><li>HubSpot CMS</li><li>React</li><li>TypeScript</li></ul>
+        <ul class="links">
+          <li><a href="https://getkyzatrex.com/">getkyzatrex.com</a></li>
+          <li><a href="https://getkyzatrex.com/get-started">Get Started page</a></li>
+        </ul>
+      </div>
+      <div class="shots" aria-hidden="true">
+        <div class="browser"><div class="bar"><i></i><i></i><i></i><span>getkyzatrex.com</span></div><div class="slot"><img src="img/kyzatrex-desktop.jpg" alt="Get Kyzatrex home page on desktop" loading="lazy"></div></div>
+        <div class="phone"><div class="slot"><img src="img/kyzatrex-mobile.jpg" alt="Get Kyzatrex home page on mobile" loading="lazy"></div></div>
+      </div>
+    </section>
+
+    <section class="project" aria-labelledby="p-prsnl">
+      <div class="text">
+        <div class="client">O2 Fitness Clubs</div>
+        <h2 id="p-prsnl">O2 Personal Trainers rebrand to PRSNL</h2>
+        <p class="role">Built the redesign.</p>
+        <p>A new landing page, a trainer directory and individual trainer profile pages. Trainer data lives in HubDB, so adding a trainer creates their profile and directory card without new page builds.</p>
+        <ul class="stack"><li>React</li><li>HubDB</li><li>HTML</li><li>CSS</li></ul>
+        <ul class="links">
+          <li><a href="https://training.o2fitnessclubs.com/">PRSNL landing page</a></li>
+          <li><a href="https://training.o2fitnessclubs.com/personal-trainers">Trainer directory</a></li>
+          <li><a href="https://training.o2fitnessclubs.com/personal-trainers/jarod-trader">Trainer profile example</a></li>
+        </ul>
+      </div>
+      <div class="shots" aria-hidden="true">
+        <div class="browser"><div class="bar"><i></i><i></i><i></i><span>training.o2fitnessclubs.com</span></div><div class="slot"><img src="img/prsnl-desktop.jpg" alt="PRSNL personal training landing page on desktop" loading="lazy"></div></div>
+        <div class="phone"><div class="slot"><img src="img/prsnl-mobile.jpg" alt="PRSNL personal training landing page on mobile" loading="lazy"></div></div>
+      </div>
+    </section>
+
+    <section class="project" aria-labelledby="p-join">
+      <div class="text">
+        <div class="client">O2 Fitness Clubs</div>
+        <h2 id="p-join">Membership join flow, steps 2 to 4</h2>
+        <p class="role">Redesigned the UI for steps 2, 3 and 4.</p>
+        <p>Reworked the middle of the online membership sign-up, the steps where people choose and confirm before paying, inside an existing LAMP-stack app.</p>
+        <ul class="stack"><li>PHP / LAMP</li><li>HTML</li><li>CSS</li></ul>
+        <ul class="links">
+          <li><a href="https://join.dev.o2fitnessclubs.com/?auto_renew=0#step2">Join flow, step 2</a></li>
+        </ul>
+      </div>
+      <div class="shots" aria-hidden="true">
+        <div class="browser"><div class="bar"><i></i><i></i><i></i><span>join.o2fitnessclubs.com</span></div><div class="slot"><img src="img/join-desktop.jpg" alt="O2 Fitness membership join flow, step 2 on desktop" loading="lazy"></div></div>
+        <div class="phone"><div class="slot"><img src="img/join-mobile.jpg" alt="O2 Fitness membership join flow, step 2 on mobile" loading="lazy"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Work shown was built as part of the web team at MDO Holdings.</footer>
+</div>
+</body>
+</html>
